@@ -52,10 +52,11 @@ func main() {
 			fmt.Printf("exiting... %v\n", err)
 			return
 		}
-		fmt.Println("ssh " + result)
+		//fmt.Println("ssh " + result)
 		cmd := exec.Command("ssh", result)
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
 		err = cmd.Run()
 		if err != nil {
 			return
